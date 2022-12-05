@@ -26,6 +26,7 @@
     box-sizing: border-box;
     color: white;
     font-family: 'CentraNo2-Book', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -50,7 +51,7 @@ header {
     display: flex;
     padding: 60px;
     height: 9vh;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(18, 18, 18, 0);
     align-items: center;
     justify-content: space-between;
     position: fixed;
@@ -182,6 +183,31 @@ header {
     margin-bottom: 20px;
 }
 
+.typed-text {
+    color: #7f46db;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: rgba(204, 204, 204, 0.849);
+    margin-left: 0.1rem;
+    width: 4px;
+    height: 65px;
+    animation: blink 1s infinite;
+}
+
+.cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0%  { background-color: #ccc; }
+    49% { background-color: #ccc; }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color: #ccc; }
+}
+
 #presentation p {
     color: var(--grey-text);
     font-size: 1.1rem;
@@ -214,6 +240,13 @@ header {
 
 #img-astronaut {
     height: 60vh;
+    animation: updown 4s linear infinite;
+}
+
+@keyframes updown {
+    0%   { transform: translateY(-30px); }
+    50%  { transform: translateY(30px); }
+    100% { transform: translateY(-30px); }
 }
 
 #header-bg {
@@ -241,6 +274,10 @@ header {
     background-repeat: no-repeat;
 }
 
+#skills-bg:target {
+    scroll-margin-top: 15em;
+}
+
 #skills {
     position: absolute;
     bottom: 55px;
@@ -254,14 +291,14 @@ header {
     padding-top: 50px;
 }
 
-#skills h2 {
+#skills h2, #projects h2 {
     margin-bottom: 10px;
     font-size: var(--font-bold);
     font-size: 2.5rem;
     letter-spacing: 1px;
 }
 
-#skills p {
+#skills p, #projects p {
     font-size: 1.1rem;
     color: var(--grey-text);
     letter-spacing: 1px;
@@ -270,7 +307,7 @@ header {
 
 #technologies {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 50vw;
     position: relative;
@@ -281,6 +318,11 @@ header {
     display: none;
     height: 150px;
     width: 200px;
+}
+
+.mySlides h3 {
+    margin: 10px auto;
+    text-align: center;
 }
 
 .prev, .next {
@@ -298,7 +340,7 @@ header {
   }
   
 .prev:hover, .next:hover {
-background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.8);
 }
 
 .fade {
@@ -307,24 +349,85 @@ background-color: rgba(0,0,0,0.8);
 }
   
 @keyframes fade {
-from {opacity: .4}
-to {opacity: 1}
-}
-/* 
-.banner {
-    animation: banner 3s linear infinite;
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
-@keyframes updown {
-    0% {
-        transform: translateY(-20px);
-    }
+#projects {
+    display: flex;
+    padding-top: 70px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(1, 0, 1);
+    height: 1000px;
+}
 
-    50% {
-        transform: translateY(20px);
-    }
+#projects:target {
+    scroll-margin-top: 5em;
+}
 
-    100% {
-        transform: translateY(-20px);
-    }
-} */
+#projects p {
+    width: 80vh;
+    margin: 10px auto;
+    text-align: justify;
+}
+
+#technologies-select {
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to right, #2e1557, #351833);
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    color: var(--grey-text);
+}
+
+#technologies-select:focus {
+    background-color: #151315;
+}
+
+#projects hr {
+    margin: 20px auto;
+    border: none;
+    height: 1px;
+    background-color: rgba(197, 197, 197, 0.315);
+    width: 1000px;
+}
+
+.pages-buttons {
+    display: flex;
+}
+
+.pages-buttons button {
+    width: 220px;
+    height: 50px;
+    font-size: 1rem;
+    word-spacing: 1px;
+    border: 1px solid rgba(197, 197, 197, 0.315);
+    background-color: #151315;
+    cursor: pointer;
+}
+
+.pages-buttons button:hover, .pages-buttons button:focus {
+    background-image: linear-gradient(to right, #562350b0, #332067a6);
+}
+
+.pages-buttons button:first-child {
+    border-radius: 20px 0 0 20px;
+    border-right: none;
+}
+
+.pages-buttons button:last-child {
+    border-radius: 0 20px 20px 0;
+    border-left: none;
+}
+
+#connect {
+}
+
+footer {
+    background-image: url('../img/footer-bg.png');
+}
