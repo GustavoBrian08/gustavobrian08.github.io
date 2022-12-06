@@ -105,7 +105,7 @@ header {
     background-color: rgb(32, 32, 32);
     margin-right: 6px;
     text-decoration: none;
-    border: 1px solid var(--grey-text);
+    border: 1px solid rgba(197, 197, 197, 0.315);;
     text-align: center;
     font-size: 1.1rem;
     transition: .3s;
@@ -359,7 +359,7 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: rgb(1, 0, 1);
-    height: 1000px;
+    height: 1050px;
 }
 
 #projects:target {
@@ -409,6 +409,8 @@ header {
     border: 1px solid rgba(197, 197, 197, 0.315);
     background-color: #151315;
     cursor: pointer;
+    border-right: none;
+    margin-bottom: 40px;
 }
 
 .pages-buttons button:hover, .pages-buttons button:focus {
@@ -417,17 +419,134 @@ header {
 
 .pages-buttons button:first-child {
     border-radius: 20px 0 0 20px;
-    border-right: none;
 }
 
 .pages-buttons button:last-child {
     border-radius: 0 20px 20px 0;
-    border-left: none;
+    border-right: 1px solid rgba(197, 197, 197, 0.315);
+}
+
+#projects-list {
+    max-width: 750vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+}
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    width: 340px;
+}
+
+.project-container img {
+    border-radius: 30px;
+    height: 230px;
+    width: 310px;
+}
+
+.project-container a {
+    display: none;
 }
 
 #connect {
+    background-image: linear-gradient(to right, #992D75, #4929AC);
+    height: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#connect img {
+    height: 55%;
+}
+
+#connect form {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    min-width: 40%;
+}
+
+#connect form h1 {
+    font-size: 3rem;
+    font-family: var(--font-bold);
+    margin-bottom: 30px;
+}
+
+#connect form div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 2px;
+}
+
+.input-form {
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.08);
+    outline: none;
+    border: 1px solid rgba(197, 197, 197, 0.76);
+    margin: 4px;
+    border-radius: 20px;
+    padding: 0 20px;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+#connect form textarea {
+    background-color: rgba(255, 255, 255, 0.08);
+    outline: none;
+    border: 1px solid rgba(197, 197, 197, 0.76);
+    margin: 3px;
+    border-radius: 20px;
+    padding: 20px;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+.input-form::placeholder, #connect form textarea::placeholder {
+    color: white;
+}
+
+#contact-submit-button {
+    height: 55px;
+    width: 130px;
+    color: black;
+    font-family: var(--font-bold);
+    font-size: 1.1rem;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: .3s;
+    border: none;
+}
+
+#contact-submit-button:hover {
+    background-color: #7f46db;
+    color: white;
+}
+
+#subscriberson {
+    display: none;
 }
 
 footer {
     background-image: url('../img/footer-bg.png');
+    background-repeat: no-repeat;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0px 70px 80px 70px;
+}
+
+#footer-left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+footer div p {
+    margin: 20px 20px 0 20px;
+    letter-spacing: 1px;
 }
