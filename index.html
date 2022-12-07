@@ -7,7 +7,9 @@
     <title>Portfolio | Gustavo Brian</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/3a51a2fe3a.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal" defer></script>
     <script src="js/scripts.js" defer></script>
+    <script src="js/scrollReveal.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,7 +27,7 @@
                     <a href="https://www.instagram.com/gustavo_brian_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
                 <button id="language-button"><i class="fa-solid fa-earth-americas"></i></button>
-                <button id="contact-button">Let's Connect</button>
+                <a href="#connect" id="contact-button">Let's Connect</a>
             </div>
         </nav>
         <div id="header-presentation-container">
@@ -35,7 +37,7 @@
                 </div>
                 <h1>Hi! I'm Gustavo Brian, <span class="typed-text">a Developer!</span><span class="cursor"></span></h1>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sequi, ipsa minima enim laudantium ex magni dicta facere doloribus consectetur animi quis eveniet accusantium necessitatibus impedit maxime itaque porro minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero enim quasi sapiente, voluptatibus.</p>
-                <button>Let's Connect <i class="fa-solid fa-chevron-right"></i></button>
+                <button><a href="#connect">Let's Connect <i class="fa-solid fa-chevron-right"></i></a></button>
             </div>
             <img id="img-astronaut" src="img/header-img.svg" alt="Gustavo, The Astronaut">
         </div>
@@ -150,7 +152,7 @@
         <aside id="connect">
             <img src="img/contact-img.svg" alt="Contact">
             <form>                    
-                <h1>Get in Touch</h1>
+                <h1>Send me an Email</h1>
                 <div>
                     <input type="text" name="first-name" id="first-name" placeholder="First Name" class="input-form">
                     <input type="text" name="last-name" id="last-name" placeholder="Last Name" class="input-form">
@@ -162,20 +164,25 @@
             </form>
         </aside>
     </main>
-    <aside id="subscriberson">
-        <h3>Subscribe to our Newsletter &  Never miss latest updates</h3>
-        <input type="text" name="" id="">
-        <button type="submit">Submit</button>
-    </aside>
     <footer>
-        <a href="#"><img src="img/logo.svg" alt="logo"></a>
-        <div id="footer-left-container">
-            <div class="social-media">
-                <a href="https://github.com/GustavoBrian08" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="www.linkedin.com/in/gustavo-brian08" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com/gustavo_brian_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <aside id="my-contacts-bg">
+            <div id="my-contacts">
+                <h3>Get in Touch</h3>
+                <address><i class="fa-solid fa-envelope"></i>gustavo-dm2010@hotmail.com
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i>(86) 99479-1327</a>
+                </address>
             </div>
-            <p>Copyright 2022. All Rights Reserved</p>
+        </aside>
+        <div>
+            <a href="#"><img src="img/logo.svg" alt="logo"></a>
+            <div id="footer-left-container">
+                <div class="social-media">
+                    <a href="https://github.com/GustavoBrian08" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="www.linkedin.com/in/gustavo-brian08" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/gustavo_brian_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <p>Copyright 2022. All Rights Reserved</p>
+            </div>
         </div>
     </footer>
 </body>
