@@ -512,6 +512,7 @@ header {
     padding: 20px;
     letter-spacing: 1px;
     font-size: 1rem;
+    resize: none;
 }
 
 .input-form::placeholder, #connect form textarea::placeholder {

@@ -1,7 +1,7 @@
 const navegation = document.querySelector("#navegation")
 let n = 1
 
-// NAVEGATION COLOR TRANSITION
+// NAVEGATION COLOR TRANSITION -----------------------------
 
 if(navegation != null){
     window.addEventListener('scroll', () => {
@@ -17,7 +17,7 @@ if(navegation != null){
     })
 }
 
-// TYPING ANIMATION
+// TYPING ANIMATION -----------------------------
 
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => { // On DOM Load initiate th
   if(textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
-// SLIDER SKILLS
+// SLIDER SKILLS -----------------------------
 
 let slideIndex = 1
 let slides = document.getElementsByClassName("mySlides")
@@ -83,3 +83,6 @@ function showSlides(n) {
 }
 
 setInterval(() => plusSlides(3), 4000)
+
+// HOVER PROJECTS -----------------------------
+
