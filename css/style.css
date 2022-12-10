@@ -112,8 +112,7 @@ header {
 }
 
 .social-media a:hover {
-    height: 43px;
-    width: 43px;
+    scale: 1.2;
     background-color: #411E7A;
 }
 
@@ -243,7 +242,7 @@ header {
 #presentation button:hover {
     background-image: linear-gradient(to right, #562350b0, #332067a6);
     padding: 10px;
-    font-size: 1.25rem;
+    scale: 1.05;
     border: 1px solid var(--grey-text);
 }
 
