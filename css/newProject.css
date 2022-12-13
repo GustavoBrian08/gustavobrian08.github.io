@@ -91,3 +91,58 @@ form div label:hover, #project-submit:hover {
     display: none;
 }
 
+progress {
+    border-radius: 7px; 
+    width: 50%;
+    height: 20px;
+    box-shadow: 1px 1px 4px black inset;
+    margin-top: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(255, 255, 255, 0.205);
+    border-radius: 7px;
+}
+
+progress::-webkit-progress-value {
+    background-image:
+	   -webkit-linear-gradient(-45deg, 
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top, 
+	                           rgba(255, 255, 255, .25), 
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #962b72, #3e2292);
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px 5px #4a29ac81;
+    -webkit-animation: animate-stripes 5s linear infinite;
+    animation: animate-stripes 5s linear infinite;
+}
+
+progress::-webkit-progress-value::before {
+    content: '80%';
+    position: absolute;
+    right: 0;
+    top: -125%;
+}
+
+progress::-webkit-progress-value::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    border-radius: 100%;
+    right: 7px;
+    top: 7px;
+    background-color: white;
+}
+
+@-webkit-keyframes animate-stripes {
+    100% { background-position: -100px 0px; }
+}
+ 
+@keyframes animate-stripes {
+    100% { background-position: -100px 0px; }
+}

@@ -113,6 +113,7 @@ header {
 
 .social-media a:hover {
     scale: 1.2;
+    border: none;
     background-color: #411E7A;
 }
 

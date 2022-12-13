@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDrHE1X_RysXVMgfwa6v7dLq-o-0k8oRZs",
@@ -13,25 +14,30 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 const formulario = document.getElementById('new-project-form')
+const nome = document.getElementById('name-project')
+const tecnoglogia = document.getElementById('technologie-project')
+const url = document.getElementById('url-project')
+const repositorio = document.getElementById('url-repository')
+const thumbnail = document.getElementById('input-file')
 
-const sendProject = async () => {
-    const nome = document.getElementById('name-project')
-    const tecnoglogia = document.getElementById('technologie-project')
-    const url = document.getElementById('url-project')
-    const thumbnail = document.getElementById('input-file')
-    if(nome.value.length != 0 && tecnoglogia.value.length != 0 && url.value.length != 0 && thumbnail.value.length != 0){
+const sendProject = async (thumb) => {
+
+    if(nome.value.length != 0 && tecnoglogia.value.length != 0 && url.value.length != 0 && repositorio.value.length != 0 && thumbnail.value.length != 0){
         try {
             const docRef = await addDoc(collection(db, "projects"), {
               nome: nome.value,
               tecnoglogia: tecnoglogia.value,
               url: url.value,
-              thumbnail: thumbnail.value
+              repositorio: repositorio.value,
+              thumbnail: thumb
             });
             nome.value = ''
             tecnoglogia.value = ''
             url.value = ''
+            repositorio.value = ''
             thumbnail.value = ''
             Toastify({
                 text: "Project created!",
@@ -60,8 +66,25 @@ const sendProject = async () => {
     }
 }
 
-formulario.addEventListener("submit", function(e){
-    e.preventDefault()
-    sendProject()
-})
+if(formulario){
+  formulario.addEventListener("submit", function(e){
+      e.preventDefault()
+  
+      let file = e.target[4].files[0]
+      let fileRef = ref(storage, `images/${file.name}`)
+  
+      uploadBytesResumable(fileRef, file).on("state_changed", snapshot => {
+        let progress = (snapshot.bytesTransferred/snapshot.totalBytes) * 100
+        document.querySelector('progress').value = progress
+      }, 
+      (error) => console.warn('Erro ao carregar arquivo: ' + error),
+      () => {
+        getDownloadURL(fileRef).then((downloadURL) => {
+          sendProject(downloadURL)
+        });
+      })
+  })
+}
+
+// MAIN PAGE
 
