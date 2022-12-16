@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | New Technologie</title>
+    <link rel="stylesheet" href="css/newProject.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="js/firebase.js" type="module" defer></script>
+</head>
+<body>
+    <form id="new-tech-form" style="height: 500px;" autocomplete="off" >
+        <h1>Add New Technologie</h1>
+        <div>
+            <input type="text" placeholder="Name for project" id="name-project">
+            <label for="input-file">Choose Image</label>
+            <input id="input-file" type="file" accept="image/*">
+        </div>
+        <div>
+            <input id="project-submit" type="submit" value="Send">
+            <progress style="width: 40%;" max="100"></progress>
+        </div>
+    </form>
+</body>
+</html>
