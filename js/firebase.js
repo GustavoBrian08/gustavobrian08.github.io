@@ -205,7 +205,8 @@ const loadSkills = async () => {
     container.classList.add('mySlides')
     container.classList.add('fade')
     img.src = doc.data().thumbnail
-    img.style.width = '100%'
+    img.style.width = '200px'
+    img.style.height = '170px'
     title.innerText = doc.data().nome
 
     container.appendChild(img)
@@ -228,7 +229,7 @@ const loadMainSelect = async () => {
   })
 }
 
-const projectsLoad = async () => {
+const loadProjects = async () => {
   const projects = query(collection(db, "Projects"))
     const projectsData = await getDocs(projects)
     projectsData.forEach((doc) => {
@@ -246,7 +247,7 @@ const projectsLoad = async () => {
       container.classList.add('project-container')
       img.src = doc.data().thumbnail
       img.alt = doc.data().nome
-      hover.classList.add('projectHover')
+      hover.classList.add('project-hover')
       description.innerText = doc.data().tecnologia
       title.innerText = doc.data().nome
       anchorsDiv.classList.add('anchors')
@@ -272,11 +273,28 @@ const projectsLoad = async () => {
     })
 }
 
+// const paginationProjects = () => {
+//   const pageButtons = getElementsByClassName('page-buttons')
+//   for (let i = 0; i < pageButtons.length; i++){
+//     console.log(projectsList.children)
+//   }
+// }
+
 if(mainSelect){
   loadMainSelect()
   loadSkills()
-  projectsLoad()
+  loadProjects()
   mainSelect.addEventListener('change', () => {
-    projectsLoad()
+    const projectHover = document.getElementsByClassName('project-hover')
+    for (let i = 0; i < projectHover.length; i++){
+      if (mainSelect.options[mainSelect.selectedIndex].text == projectHover[i].children[0].innerText){
+        projectHover[i].parentElement.style.display = 'flex'
+      } else if(mainSelect.options[mainSelect.selectedIndex].value == 0){
+        projectHover[i].parentElement.style.display = 'flex'
+      }
+      else {
+        projectHover[i].parentElement.style.display = 'none'
+      }
+    }
   })
 }

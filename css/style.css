@@ -321,6 +321,7 @@ header {
     width: 50vw;
     position: relative;
     margin: auto;
+    padding: 0 10px;
 }
 
 .mySlides {
@@ -459,7 +460,7 @@ header {
     width: 310px;
 }
 
-.projectHover {
+.project-hover {
     position: absolute;
     top: 0;
     left: 0;
@@ -474,14 +475,14 @@ header {
     transition: .5s;
 }
 
-.projectHover h3 {
+.project-hover h3 {
     font-size: 2rem;
     font-family: var(--font-bold);
     text-align: center;
     word-wrap: break-word;
 }
 
-.projectHover p {
+.project-hover p {
     font-style: italic;
     font-family: var(--font-bold);
     color: #ffffffcc;
