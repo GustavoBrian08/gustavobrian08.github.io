@@ -20,12 +20,17 @@ const formulario = document.getElementById('new-project-form')
 const formularioTech = document.getElementById('new-tech-form')
 const thumbnail = document.getElementById('input-file')
 const nome = document.getElementById('name-project')
-const tecnoglogia = document.getElementById('technologie-project')
 const url = document.getElementById('url-project')
 const repositorio = document.getElementById('url-repository')
+const selectTech = document.getElementById
+('select-tech')
+const selectCategory = document.getElementById('select-category')
+const tags = document.getElementById('tags')
+const mainSelect = document.getElementById('technologies-select')
+let tagList = []
 
 
-const toastySucess = (message) => {
+const toastySuccess = (message) => {
   Toastify({
     text: message,
     duration: 5000,
@@ -70,35 +75,89 @@ const sendProject = async (thumbURL) => {
   try {
     const docRef = await addDoc(collection(db, "Projects"), {
       nome: nome.value,
-      tecnoglogia: tecnoglogia.value,
+      tecnologia: loadTags(),
       url: url.value,
       repositorio: repositorio.value,
       thumbnail: thumbURL
     })
     nome.value = ''
-    tecnoglogia.value = ''
     url.value = ''
+    tags.remove(tags.children)
     repositorio.value = ''
     thumbnail.value = ''
     
-    toastySucess('Project created!')
+    toastySuccess('Project created!')
   } catch (e) {
     console.error("Erro ao criar o novo projeto: ", e)
   }
+}
+
+const loadSelect = async () => {
+  const technologies = query(collection(db, "Technologies"))
+  const techsData = await getDocs(technologies)
+  techsData.forEach((doc) => {
+    const option = document.createElement('option')
+    option.innerHTML = doc.data().nome
+    selectTech.appendChild(option)
+  })
+}
+
+const createTag = (text) => {
+  const span = document.createElement('span')
+  const p = document.createElement('p')
+  const button = document.createElement('button')
+  const i = document.createElement('i')
+
+  span.classList.add('tag')
+  p.innerHTML = text
+  button.type = 'button'
+  button.classList.add('close-tag-button')
+  i.classList.add('fa-solid')
+  i.classList.add('fa-xmark')
+  
+  span.appendChild(p)
+  span.appendChild(button)
+  button.appendChild(i)
+  tags.appendChild(span)
+
+  button.onclick = () => {
+    button.parentElement.remove()
+    tagList.pop()
+  }
+}
+
+const addTag = () => {
+  selectTech.addEventListener('change', () => {
+    if(selectTech.options[selectTech.selectedIndex].value != 0)
+    createTag(selectTech.options[selectTech.selectedIndex].text)
+  })
+}
+
+function loadTags(){
+  for(let i = 0; i < tags.childElementCount; i++){
+    tagList.push(tags.children[i].innerText)
+  }
+  return tagList.toString()
+}
+
+if (selectTech){
+  loadSelect()
+  addTag()
 }
 
 
 // NEW TECH PAGE
 const sendTech = async (thumbURL) => {
   try {
-    const docRef = await addDoc(collection(db, "Technologies"), {
+    await addDoc(collection(db, "Technologies"), {
       nome: nome.value,
+      categoria: selectCategory.options[selectCategory.selectedIndex].text,
       thumbnail: thumbURL
     })
     nome.value = ''
     thumbnail.value = ''
     
-    toastySucess('New tech added!')
+    toastySuccess('New tech added!')
   } catch (e) {
     console.error("Erro ao adicionar a nova tecnologia: ", e)
   }
@@ -107,8 +166,8 @@ const sendTech = async (thumbURL) => {
 if(formulario){
   formulario.addEventListener("submit", e => {
     e.preventDefault()
-    if(nome.value.length != 0 && tecnoglogia.value.length != 0 && url.value.length != 0 && repositorio.value.length != 0 && thumbnail.value.length != 0){
-      let file = e.target[4].files[0]
+    if(nome.value.length != 0 && tags.childElementCount != 0 && url.value.length != 0 && repositorio.value.length != 0 && thumbnail.value.length != 0){
+      let file = e.target.children[1].children[6].files[0]
       let fileRef = ref(storage, `images/${file.name}`)
 
       uploadData(fileRef, file, sendProject)
@@ -120,8 +179,8 @@ if(formulario){
 } else if (formularioTech){
   formularioTech.addEventListener('submit', e => {
     e.preventDefault()
-    if(nome.value.lengh != 0 && thumbnail.value.length != 0){
-      let file = e.target[1].files[0]
+    if(nome.value.lengh != 0 && selectCategory.selectedIndex != 0 && thumbnail.value.length != 0){
+      let file = e.target[2].files[0]
       let fileRef = ref(storage, `techs/${file.name}`)
 
       uploadData(fileRef, file, sendTech)
@@ -133,6 +192,41 @@ if(formulario){
 
 // MAIN PAGE
 const projectsList = document.getElementById('projects-list')
+const skills = document.getElementById('technologies')
+
+const loadSkills = async () => {
+  const technologies = query(collection(db, "Technologies"))
+  const techsData = await getDocs(technologies)
+  techsData.forEach((doc) => {
+    const container = document.createElement('div')
+    const img = document.createElement('img')
+    const title = document.createElement('h3')
+
+    container.classList.add('mySlides')
+    container.classList.add('fade')
+    img.src = doc.data().thumbnail
+    img.style.width = '100%'
+    title.innerText = doc.data().nome
+
+    container.appendChild(img)
+    container.appendChild(title)
+    skills.children[1].appendChild(container)
+  })
+}
+
+const loadMainSelect = async () => {
+  const technologies = query(collection(db, "Technologies"))
+  const techsData = await getDocs(technologies)
+  techsData.forEach((doc) => {
+    const option = document.createElement('option')
+    option.innerHTML = doc.data().nome
+    if(doc.data().categoria == 'Web Development'){
+      mainSelect.children[1].appendChild(option)
+    } else {
+      mainSelect.children[2].appendChild(option)
+    }
+  })
+}
 
 const projectsLoad = async () => {
   const projects = query(collection(db, "Projects"))
@@ -140,16 +234,49 @@ const projectsLoad = async () => {
     projectsData.forEach((doc) => {
       const container = document.createElement('div')
       const img = document.createElement('img')
-      const anchor = document.createElement('a')
-      const title = document.createElement('h3')
+      const hover = document.createElement('div')
       const description = document.createElement('p')
+      const title = document.createElement('h3')
+      const anchorsDiv = document.createElement('div')
+      const anchorLink = document.createElement('a')
+      const anchorRepo = document.createElement('a')
+      const iRepo = document.createElement('i')
+      const iLink = document.createElement('i')
 
-      console.log(doc.data())
+      container.classList.add('project-container')
+      img.src = doc.data().thumbnail
+      img.alt = doc.data().nome
+      hover.classList.add('projectHover')
+      description.innerText = doc.data().tecnologia
+      title.innerText = doc.data().nome
+      anchorsDiv.classList.add('anchors')
+      anchorLink.href = doc.data().url
+      anchorRepo.href = doc.data().repositorio
+      iLink.classList.add('fa-solid')
+      iLink.classList.add('fa-link')
+      iRepo.classList.add('fa-solid')
+      iRepo.classList.add('fa-inbox')
+
+      container.appendChild(img)
+      container.appendChild(hover)
+      hover.appendChild(description)
+      hover.appendChild(title)
+      hover.appendChild(anchorsDiv)
+      anchorsDiv.appendChild(anchorLink)
+      anchorsDiv.appendChild(anchorRepo)
+      anchorLink.appendChild(iLink)
+      anchorRepo.appendChild(iRepo)
+      anchorLink.innerHTML = `${anchorLink.innerHTML}Open Project`
+      anchorRepo.innerHTML = `${anchorRepo.innerHTML} Repository`
+      projectsList.appendChild(container)
     })
 }
 
-if(projectsList){
-  projectsList.addEventListener('transitionend', () => {
+if(mainSelect){
+  loadMainSelect()
+  loadSkills()
+  projectsLoad()
+  mainSelect.addEventListener('change', () => {
     projectsLoad()
   })
 }

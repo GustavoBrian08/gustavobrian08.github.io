@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => { // On DOM Load initiate th
 
 let slideIndex = 1
 let slides = document.getElementsByClassName("mySlides")
-showSlides(slideIndex)
+setTimeout(() => {if(slides){ showSlides(slideIndex) }}, 1000)
 
 // Next/previous controls
 const plusSlides = n => showSlides(slideIndex += n)

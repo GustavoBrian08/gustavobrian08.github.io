@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Gustavo Brian</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/scripts.js" defer></script>
     <script src="js/firebase.js" type="module" defer></script>
     <script src="https://kit.fontawesome.com/3a51a2fe3a.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal" defer></script>
-    <script src="js/scripts.js" defer></script>
     <script src="js/scrollReveal.js" defer></script>
 </head>
 <body>
@@ -53,31 +53,33 @@
                 <p>all these technologies I studied and used in at least one project.</p>
                 <div id="technologies">
                     <a class="prev" onclick="plusSlides(-3)">&#10094;</a>
-                    <div class="mySlides fade">
-                        <a href="#">
-                            <img src="./img/meter1.svg" style="width:100%">
-                        </a>
-                        <h3>Skill 1</h3>
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="./img/meter2.svg" style="width:100%">
-                        <h3>Skill 2</h3>
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="./img/meter3.svg" style="width:100%">
-                        <h3>Skill 3</h3>
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="./img/project-img1.png" style="width:100%">
-                        <h3>Skill 4</h3>
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="./img/project-img2.png" style="width:100%">
-                        <h3>Skill 5</h3>
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="./img/project-img3.png" style="width:100%">
-                        <h3>Skill 6</h3>
+                    <div>
+                        <div class="mySlides fade">
+                            <a href="#projects">
+                                <img src="./img/meter1.svg" style="width:100%">
+                            </a>
+                            <h3>Skill 1</h3>
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./img/meter2.svg" style="width:100%">
+                            <h3>Skill 2</h3>
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./img/meter3.svg" style="width:100%">
+                            <h3>Skill 3</h3>
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./img/project-img1.png" style="width:100%">
+                            <h3>Skill 4</h3>
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./img/project-img2.png" style="width:100%">
+                            <h3>Skill 5</h3>
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="./img/project-img3.png" style="width:100%">
+                            <h3>Skill 6</h3>
+                        </div>
                     </div>
                     <a class="next" onclick="plusSlides(3)">&#10095;</a>
                 </div>
@@ -89,14 +91,8 @@
             <select name="Technologies"  id="technologies-select">
                 <option value="">-- Search by Technologie --</option>
                 <optgroup label="Web Development">
-                    <option value="tech1">Technologie 1</option>
-                    <option value="tech2">Technologie 2</option>
-                    <option value="tech3">Technologie 3</option>
                 </optgroup>
                 <optgroup label="Game Development">
-                    <option value="tech4">Technologie 4</option>
-                    <option value="tech5">Technologie 5</option>
-                    <option value="tech6">Technologie 6</option>
                 </optgroup>
             </select>
             <hr>
@@ -106,48 +102,6 @@
                 <button>Tab 3</button>
             </div>
             <div id="projects-list">
-                <div class="project-container">
-                    <img src="img/project-img1.png" alt="project 1">
-                    <a href="#">
-                        <h3>Project 1</h3>
-                    </a>
-                    <p>Made with Vanilla's</p>
-                </div>
-                <div class="project-container">
-                    <img src="img/project-img2.png" alt="project 1">
-                    <a href="#">
-                        <h3>Project 1</h3>
-                        <p>Made with Vanilla's</p>
-                    </a>
-                </div>
-                <div class="project-container">
-                    <img src="img/project-img3.png" alt="project 1">
-                    <a href="#">
-                        <h3>Project 1</h3>
-                        <p>Made with Vanilla's</p>
-                    </a>
-                </div>
-                <div class="project-container">
-                    <img src="img/project-img1.png" alt="project 1">
-                    <a href="#">
-                        <h3>Project 1</h3>
-                        <p>Made with Vanilla's</p>
-                    </a>
-                </div>
-                <div class="project-container">
-                    <img src="img/project-img2.png" alt="project 1">
-                    <a href="#">
-                        <h3>Project 1</h3>
-                        <p>Made with Vanilla's</p>
-                    </a>
-                </div>
-                <div class="project-container">
-                    <img src="img/klotski.png" alt="Klotski Game">
-                    <a href="https://gustavobrian08.github.io/klotski/">
-                        <h3>Klotski Game</h3>
-                        <p>Made with Vanilla's</p>
-                    </a>
-                </div>
             </div>
         </section>
         <aside id="connect">
