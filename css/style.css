@@ -407,11 +407,11 @@ header {
     width: 1000px;
 }
 
-.pages-buttons {
+#pages-buttons {
     display: flex;
 }
 
-.pages-buttons button {
+#pages-buttons button {
     width: 220px;
     height: 50px;
     font-size: 1rem;
@@ -423,15 +423,15 @@ header {
     margin-bottom: 40px;
 }
 
-.pages-buttons button:hover, .pages-buttons button:focus {
+#pages-buttons button:hover, #pages-buttons button:focus {
     background-image: linear-gradient(to right, #562350b0, #332067a6);
 }
 
-.pages-buttons button:first-child {
+#pages-buttons button:first-child {
     border-radius: 20px 0 0 20px;
 }
 
-.pages-buttons button:last-child {
+#pages-buttons button:last-child {
     border-radius: 0 20px 20px 0;
     border-right: 1px solid rgba(197, 197, 197, 0.315);
 }
@@ -472,7 +472,13 @@ header {
     align-items: center;
     background-image: linear-gradient(to top, #992d75e1, #2e1557ce);
     border-radius: 30px;
-    transition: .5s;
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .project-hover h3 {
@@ -670,4 +676,8 @@ footer > div > a {
 footer div p {
     margin: 20px 20px 0 20px;
     letter-spacing: 1px;
+}
+
+.display-none {
+    display: none !important;
 }

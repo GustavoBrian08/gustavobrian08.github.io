@@ -22,8 +22,7 @@ const thumbnail = document.getElementById('input-file')
 const nome = document.getElementById('name-project')
 const url = document.getElementById('url-project')
 const repositorio = document.getElementById('url-repository')
-const selectTech = document.getElementById
-('select-tech')
+const selectTech = document.getElementById('select-tech')
 const selectCategory = document.getElementById('select-category')
 const tags = document.getElementById('tags')
 const mainSelect = document.getElementById('technologies-select')
@@ -128,8 +127,9 @@ const createTag = (text) => {
 
 const addTag = () => {
   selectTech.addEventListener('change', () => {
-    if(selectTech.options[selectTech.selectedIndex].value != 0)
-    createTag(selectTech.options[selectTech.selectedIndex].text)
+    const optionSelected = selectTech.options[selectTech.selectedIndex]
+    if(optionSelected.value != 0)
+    createTag(optionSelected.text)
   })
 }
 
@@ -193,6 +193,7 @@ if(formulario){
 // MAIN PAGE
 const projectsList = document.getElementById('projects-list')
 const skills = document.getElementById('technologies')
+const pageButtons = document.getElementById('pages-buttons')
 
 const loadSkills = async () => {
   const technologies = query(collection(db, "Technologies"))
@@ -248,11 +249,14 @@ const loadProjects = async () => {
       img.src = doc.data().thumbnail
       img.alt = doc.data().nome
       hover.classList.add('project-hover')
+      hover.classList.add('hide')
       description.innerText = doc.data().tecnologia
       title.innerText = doc.data().nome
       anchorsDiv.classList.add('anchors')
       anchorLink.href = doc.data().url
+      anchorLink.target = '_blank'
       anchorRepo.href = doc.data().repositorio
+      anchorRepo.target = '_blank'
       iLink.classList.add('fa-solid')
       iLink.classList.add('fa-link')
       iRepo.classList.add('fa-solid')
@@ -269,32 +273,89 @@ const loadProjects = async () => {
       anchorRepo.appendChild(iRepo)
       anchorLink.innerHTML = `${anchorLink.innerHTML}Open Project`
       anchorRepo.innerHTML = `${anchorRepo.innerHTML} Repository`
+      container.setAttribute('data-show', 1)
       projectsList.appendChild(container)
     })
 }
 
-// const paginationProjects = () => {
-//   const pageButtons = getElementsByClassName('page-buttons')
-//   for (let i = 0; i < pageButtons.length; i++){
-//     console.log(projectsList.children)
-//   }
-// }
+const paginationProjects = () => {
+  let projectsArray = []
+  for (let i = 0; i < projectsList.childElementCount; i++){
+    projectsArray[i] = projectsList.children[i]
+  }
+
+  for (let i = 0; i < pageButtons.childElementCount; i++){
+    
+    pageButtons.children[i].addEventListener('click', () => {
+      let button = pageButtons.children[i]
+      let value = button.value - 1
+      let actualProjects = []
+      let showProjects = []
+
+      projectsArray.forEach( p => {
+        
+        if (p.getAttribute('data-show') == 1){
+          actualProjects.push(p)
+          if (i == 0){
+            showProjects = actualProjects.slice(0, 6)
+          } else {
+            showProjects = actualProjects.slice(value * 6, button.value * 6)
+          }
+        }        
+        p.style.display = 'none'
+      })
+
+      showProjects.forEach(element => {
+        element.style.display = 'flex'
+      })
+    })
+  }
+}
+
+const newButtonTab = () => {
+  let totalPages = Math.ceil(projectsList.childElementCount / 6)
+  let newPages = totalPages - pageButtons.childElementCount
+  if (pageButtons.childElementCount < totalPages){
+    for (let i = 0; i < newPages; i++){
+      const value = pageButtons.childElementCount + 1
+      const button = document.createElement('button')
+      button.value = value
+      button.innerHTML = `Tab ${value}`
+      pageButtons.appendChild(button)
+    }
+  }
+}
 
 if(mainSelect){
   loadMainSelect()
   loadSkills()
   loadProjects()
+  
+  setTimeout(() => {
+    newButtonTab()
+    for (let i = 0; i < projectsList.childElementCount; i++){
+      i < 6 ? projectsList.children[i].style.display = 'flex' : projectsList.children[i].style.display = 'none'
+    }
+  }, 500)
+
   mainSelect.addEventListener('change', () => {
     const projectHover = document.getElementsByClassName('project-hover')
     for (let i = 0; i < projectHover.length; i++){
-      if (mainSelect.options[mainSelect.selectedIndex].text == projectHover[i].children[0].innerText){
-        projectHover[i].parentElement.style.display = 'flex'
-      } else if(mainSelect.options[mainSelect.selectedIndex].value == 0){
-        projectHover[i].parentElement.style.display = 'flex'
-      }
-      else {
-        projectHover[i].parentElement.style.display = 'none'
+      const project = projectHover[i].parentElement
+      const optionSelected = mainSelect.options[mainSelect.selectedIndex]
+
+      if (optionSelected.text == projectHover[i].children[0].innerText){
+        project.setAttribute('data-show', 1)
+        project.style.display = 'flex'
+      } else if(optionSelected.value == 0){
+        project.setAttribute('data-show', 1)
+        i < 6 ? project.style.display = 'flex' : project.style.display = 'none'
+      } else {
+        project.setAttribute('data-show', 0)
+        project.style.display = 'none'
       }
     }
   })
+
+  setTimeout(() => {paginationProjects()}, 500)
 }
