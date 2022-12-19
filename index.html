@@ -109,15 +109,18 @@
         </section>
         <aside id="connect">
             <img src="img/contact-img.svg" alt="Contact">
-            <form>                    
+            <form action="https://formsubmit.co/gustavo-dm2010@hotmail.com" method="POST">                    
                 <h1>Send me an Email</h1>
                 <div>
-                    <input type="text" name="first-name" id="first-name" placeholder="First Name" class="input-form">
+                    <input type="text" name="first-name" id="first-name" placeholder="First Name" class="input-form" required>
                     <input type="text" name="last-name" id="last-name" placeholder="Last Name" class="input-form">
-                    <input type="email" name="email" id="email" placeholder="Email Adress" class="input-form">
+                    <input type="email" name="email" id="email" placeholder="Email Address" class="input-form" required>
                     <input type="tel" name="phone" id="phone" placeholder="Phone No." class="input-form">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://gustavobrian08.github.io/">
                 </div>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea required>
                 <input type="submit" value="Send" id="contact-submit-button">
             </form>
         </aside>
@@ -139,7 +142,7 @@
                     <a href="https://www.linkedin.com/in/gustavo-brian08" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://www.instagram.com/gustavo_brian_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
-                <p>Copyright 2022. All Rights Reserved</p>
+                <p>Created By: Gustavo Brian. 2022.</p>
             </div>
         </div>
     </footer>

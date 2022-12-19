@@ -89,8 +89,6 @@ setInterval(() => plusSlides(3), 4000)
 const projectHover = document.getElementsByClassName('project-hover')
 const projectContainer = document.getElementsByClassName('project-container')
 
-
-console.log(projectContainer)
 setTimeout(() => {
   for (let i = 0; i < projectContainer.length; i++){
     projectContainer[i].onmouseover = () => {
@@ -103,5 +101,4 @@ setTimeout(() => {
       projectContainer[i].style.scale = 1.0
     }
   }
-  
 }, 800);

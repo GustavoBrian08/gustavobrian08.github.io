@@ -118,7 +118,9 @@ form div label {
     font-family: 'CentraNo2-Bold', sans-serif;
     width: 200px;
     padding: 0;
+    margin-bottom: 0;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 form div label:hover, #project-submit:hover {
@@ -192,4 +194,22 @@ progress::-webkit-progress-value::after {
  
 @keyframes animate-stripes {
     100% { background-position: -100px 0px; }
+}
+
+#redirect {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#redirect a {
+    text-decoration: none;
+    color: white;
+    margin: 10px 5px 0 5px;
+    transition: .3s;
+}
+
+#redirect a:hover {
+    color: #c73998;
+    scale: 1.05;
 }

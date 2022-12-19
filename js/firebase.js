@@ -137,7 +137,7 @@ function loadTags(){
   for(let i = 0; i < tags.childElementCount; i++){
     tagList.push(tags.children[i].innerText)
   }
-  return tagList.toString()
+  return tagList.join(', ')
 }
 
 if (selectTech){
@@ -336,7 +336,7 @@ if(mainSelect){
     for (let i = 0; i < projectsList.childElementCount; i++){
       i < 6 ? projectsList.children[i].style.display = 'flex' : projectsList.children[i].style.display = 'none'
     }
-  }, 500)
+  }, 700)
 
   mainSelect.addEventListener('change', () => {
     const projectHover = document.getElementsByClassName('project-hover')
@@ -344,7 +344,7 @@ if(mainSelect){
       const project = projectHover[i].parentElement
       const optionSelected = mainSelect.options[mainSelect.selectedIndex]
 
-      if (optionSelected.text == projectHover[i].children[0].innerText){
+      if (projectHover[i].children[0].innerText.indexOf(optionSelected.text) != -1){
         project.setAttribute('data-show', 1)
         project.style.display = 'flex'
       } else if(optionSelected.value == 0){
