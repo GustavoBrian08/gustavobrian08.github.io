@@ -681,3 +681,200 @@ footer div p {
 .display-none {
     display: none !important;
 }
+
+
+/* DISPOSITIVOS MOVEIS
+ 
+    Smartphones
+*/
+@media screen and (max-width: 576px) {
+
+    body {
+        
+    }
+
+    #navegation {
+        padding: 0 10px;
+        height: 10vh;
+        justify-content: space-between;
+    }
+
+    #navegation {
+        width: 100vw;
+    }
+
+    #navegation > a {
+        scale: 0.8;
+    }
+
+    #nav-buttons {
+        justify-content: center;
+    }
+
+    #nav-buttons ul, #contact-button {
+        display: none;
+    }
+
+    .social-media {
+        scale: 1;
+        margin: 0;
+    }
+    
+    #language-button {
+        scale: 0.9;
+    }
+
+    header {
+        height: 100vh;
+    }
+
+    #header-presentation-container {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding-top: 230px;
+    }
+
+    #img-astronaut {
+        scale: 0.5;
+    }
+
+    #presentation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        margin-top: -100px;
+    }
+
+    #presentation > div {
+        margin: 0 auto 30px auto;
+    }
+
+    #presentation > h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        margin: 0 auto 30px auto;
+        text-align: center;
+        width: 90vw;
+        height: 130px;
+    }
+    
+    #presentation > p {
+        width: 85vw;
+    }
+
+    #presentation button {
+        background-image: linear-gradient(to right, #562350b0, #332067a6);
+        padding: 10px;
+        scale: 1.05;
+        border: 1px solid var(--grey-text);
+    }
+
+    .cursor {
+        height: 40px;
+    }
+
+    #header-bg {
+        height: 300vh;
+        background-image: url("../img/bg-mobile.jpg"), url("../img/bg-mobile-rotated.jpg");
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat, repeat-y;   
+    }
+
+    #header-bg img {
+        display: none;
+    }
+
+    #skills-bg {
+        top: 40vh;
+        height: 100vh;
+    }
+
+    #skills {
+        bottom: 50px;
+        height: 100vh;
+        width: 90vw;
+        border-radius: 40px;
+        justify-content: center;
+    }
+
+    #skills p {
+        text-align: center;
+    }
+
+    #technologies {
+        width: 100%;
+    }
+
+    #technologies > div {
+        flex-direction: column;
+    }
+
+    .mySlides {
+        margin: 25px;
+    }
+
+    .mySlides img {
+        height: 80% !important;
+        width: 80% !important;
+        margin-left: 20px;
+    }
+    
+    #projects {
+        padding-top: 400px;
+        padding: 400px 10px 0 10px;
+        height: 200vh;
+        
+    }
+
+    #projects p, #pages-buttons, hr, #projects-list {
+        display: none;
+    }
+
+    #connect {
+        padding: 0 5px;
+        flex-direction: column;
+        height: 150vh;
+        justify-content: unset;
+    }
+
+    #connect > img {
+        scale: 0.45;
+        margin: -130px 0;
+    }
+
+    #connect form h1 {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    
+    #contact-submit-button {
+        align-self: center;
+    }
+
+    .input-form {
+        width: 95%;
+    }
+
+    #my-contacts {
+        width: 90%;
+        justify-content: center;
+    }
+
+    #my-contacts address {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    footer {
+        padding: 0px;
+    }
+
+    footer > div div {
+        scale: 0.8;
+    }
+}
