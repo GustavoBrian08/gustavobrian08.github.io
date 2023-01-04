@@ -441,6 +441,7 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 260px;
+    overflow: hidden;
 }
 
 .project-container {
@@ -822,7 +823,6 @@ footer div p {
         padding-top: 400px;
         padding: 400px 10px 0 10px;
         height: 200vh;
-        
     }
 
     #projects p {

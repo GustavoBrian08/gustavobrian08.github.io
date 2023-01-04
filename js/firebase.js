@@ -357,5 +357,5 @@ if(mainSelect){
     }
   })
 
-  setTimeout(() => {paginationProjects()}, 500)
+  setTimeout(() => {paginationProjects()}, 1000)
 }
