@@ -89,16 +89,24 @@ setInterval(() => plusSlides(3), 4000)
 const projectHover = document.getElementsByClassName('project-hover')
 const projectContainer = document.getElementsByClassName('project-container')
 
-setTimeout(() => {
+const hoverFunction = (add, init) => {
   for (let i = 0; i < projectContainer.length; i++){
     projectContainer[i].onmouseover = () => {
       projectHover[i].classList.remove("hide")
-      projectContainer[i].style.scale = 1.05
+      projectContainer[i].style.scale = add
     }
 
     projectHover[i].onmouseout = () => {
       projectHover[i].classList.add("hide")
-      projectContainer[i].style.scale = 1.0
+      projectContainer[i].style.scale = init
     }
   }
-}, 800);
+}
+
+setTimeout(() => {
+  if (window.screen.width <= 576){
+    hoverFunction(1.04, 0.9)
+  } else {
+    hoverFunction(1.05, 1.0)
+  }
+}, 1000);

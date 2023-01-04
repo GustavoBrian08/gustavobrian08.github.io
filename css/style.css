@@ -377,7 +377,7 @@ header {
 }
 
 #projects > p {
-    width: 80vh;
+    width: 40vw;
     margin: 10px auto;
     text-align: justify;
 }
@@ -689,10 +689,6 @@ footer div p {
 */
 @media screen and (max-width: 576px) {
 
-    body {
-        
-    }
-
     #navegation {
         padding: 0 10px;
         height: 10vh;
@@ -829,14 +825,40 @@ footer div p {
         
     }
 
-    #projects p, #pages-buttons, hr, #projects-list {
-        display: none;
+    #projects p {
+        width: 80vw;
+    }
+
+    #projects hr {
+        width: 90%;
+    }
+
+    #pages-buttons button {
+        width: 90px;
+    }
+
+    #projects-list {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+        width: 90vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin-bottom: 40px;
+    }
+
+    .project-container {
+        scale: 0.9;
+        margin: auto;
+    }
+
+    .project-hover {
+        text-align: center;
     }
 
     #connect {
         padding: 0 5px;
         flex-direction: column;
-        height: 150vh;
+        height: 140vh;
         justify-content: unset;
     }
 
@@ -874,7 +896,20 @@ footer div p {
         padding: 0px;
     }
 
-    footer > div div {
+    footer > div > a {
+        margin: 30px;
+        margin: 0 0 15px 10px;
+        scale: 0.9;
+    }
+
+    #footer-left-container {
+        margin-bottom: 10px;
+        width: 40%;
+    }
+
+    #footer-left-container p {
+        text-align: end;
         scale: 0.8;
+        margin: 0;
     }
 }
