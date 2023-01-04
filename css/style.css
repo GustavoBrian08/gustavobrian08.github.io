@@ -668,6 +668,10 @@ footer > div > a {
     align-items: flex-end;
 }
 
+footer > div > a img {
+    max-height: 100px;
+}
+
 #footer-left-container {
     display: flex;
     flex-direction: column;
@@ -793,12 +797,14 @@ footer div p {
         bottom: 50px;
         height: 100vh;
         width: 90vw;
-        border-radius: 40px;
+        border-radius: 50px;
         justify-content: center;
+        padding-top: 30px;
     }
 
     #skills p {
         text-align: center;
+        width: 90%;
     }
 
     #technologies {
@@ -883,6 +889,8 @@ footer div p {
     #my-contacts {
         width: 90%;
         justify-content: center;
+        bottom: 10px;
+        border-radius: 40px;
     }
 
     #my-contacts address {
@@ -897,9 +905,8 @@ footer div p {
     }
 
     footer > div > a {
-        margin: 30px;
-        margin: 0 0 15px 10px;
-        scale: 0.9;
+        margin-left: 5px;
+        scale: 0.8;
     }
 
     #footer-left-container {
