@@ -266,6 +266,7 @@ header {
     right: 0;
     z-index: -1;
     height: 100vh;
+    overflow: hidden;
 }
 
 #header-bg img {
@@ -596,8 +597,8 @@ header {
 }
 
 footer {
-    background-image: url('../img/footer-bg.png');
-    background-repeat: no-repeat;
+    background-image: url('../img/footer-bg.png'), url('../img/footer-bg-rotated.png');
+    background-repeat: no-repeat, repeat-x;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -920,3 +921,88 @@ footer div p {
         margin: 0;
     }
 }
+
+@media screen and (max-width: 1300px) {
+
+    #header-bg img {
+        scale: 1.3;
+    }
+
+    #presentation h1 {
+        font-size: 2.7rem;
+    }
+
+    #technologies {
+        width: 90%;
+    }
+
+    #technologies div {
+        width: 100%;
+    }
+
+    .mySlides {
+        width: 200px !important;
+    }
+
+    #projects > p {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 1118px){
+
+    #navegation {
+        padding: 15px 0px 15px 20px;
+        height: 80px;
+    }
+
+    #navegation a, #nav-buttons {
+        scale: 0.85;
+    }
+
+    #header-bg img {
+        width: 150%;
+    }
+
+    #technologies {
+        width: 100%;
+        scale: 0.8;
+    }
+
+    #technologies div {
+        width: 100%;
+    }
+
+    #projects hr {
+        width: 80%;
+    }
+
+    #projects-list {
+        scale: 0.8;
+    }
+
+    #connect img {
+        height: 35%;
+    }
+
+    #connect form {
+        width: 35%;
+    }
+
+    .input-form {
+        width: 95%;
+    }
+
+    #my-contacts {
+        height: 260px;
+    }
+
+    footer {
+        height: 350px;
+        padding: 0 5px;
+    }
+}
+
+/* @media screen and (max-width: 900px) {
+    
+} */

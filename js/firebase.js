@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, query } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
+import { hoverFunction } from "./scripts.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDrHE1X_RysXVMgfwa6v7dLq-o-0k8oRZs",
@@ -276,9 +277,13 @@ const loadProjects = async () => {
       container.setAttribute('data-show', 1)
       projectsList.appendChild(container)
     })
+
+    refreshFirstProjects()
+    paginationProjects()
+    hoverProjectsResponsive()
 }
 
-const paginationProjects = () => {
+function paginationProjects(){
   let projectsArray = []
   for (let i = 0; i < projectsList.childElementCount; i++){
     projectsArray[i] = projectsList.children[i]
@@ -326,17 +331,26 @@ const newButtonTab = () => {
   }
 }
 
+function refreshFirstProjects(){
+  newButtonTab()
+  for (let i = 0; i < projectsList.childElementCount; i++){
+    i < 6 ? projectsList.children[i].style.display = 'flex' : projectsList.children[i].style.display = 'none'
+  }
+}
+
+function hoverProjectsResponsive(){
+  const screen = window.screen.width
+  if (screen < 576){
+    hoverFunction(1.04, 0.9)
+  } else {
+    hoverFunction(1.05, 1.0)
+  }
+}
+
 if(mainSelect){
   loadMainSelect()
   loadSkills()
   loadProjects()
-  
-  setTimeout(() => {
-    newButtonTab()
-    for (let i = 0; i < projectsList.childElementCount; i++){
-      i < 6 ? projectsList.children[i].style.display = 'flex' : projectsList.children[i].style.display = 'none'
-    }
-  }, 700)
 
   mainSelect.addEventListener('change', () => {
     const projectHover = document.getElementsByClassName('project-hover')
@@ -356,6 +370,4 @@ if(mainSelect){
       }
     }
   })
-
-  setTimeout(() => {paginationProjects()}, 1000)
 }

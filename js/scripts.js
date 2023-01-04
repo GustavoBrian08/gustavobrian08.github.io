@@ -103,10 +103,4 @@ const hoverFunction = (add, init) => {
   }
 }
 
-setTimeout(() => {
-  if (window.screen.width <= 576){
-    hoverFunction(1.04, 0.9)
-  } else {
-    hoverFunction(1.05, 1.0)
-  }
-}, 1000);
+export {hoverFunction}
