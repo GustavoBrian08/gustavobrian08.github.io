@@ -696,7 +696,7 @@ footer div p {
 @media screen and (max-width: 576px) {
 
     #navegation {
-        padding: 0 10px;
+        padding: 0 10px !important;
         height: 10vh;
         justify-content: space-between;
     }
@@ -706,11 +706,12 @@ footer div p {
     }
 
     #navegation > a {
-        scale: 0.8;
+        scale: 0.8 !important;
     }
 
     #nav-buttons {
-        justify-content: center;
+        justify-content: center !important;
+        scale: 1 !important;
     }
 
     #nav-buttons ul, #contact-button {
@@ -718,34 +719,23 @@ footer div p {
     }
 
     .social-media {
-        scale: 1;
-        margin: 0;
+        margin: 0 !important;
     }
     
     #language-button {
-        scale: 0.9;
+        scale: 0.9 !important;
     }
 
     header {
-        height: 100vh;
-    }
-
-    #header-presentation-container {
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-        padding-top: 230px;
+        height: 100vh !important;
     }
 
     #img-astronaut {
-        scale: 0.5;
+        scale: 0.5 !important;
+        margin: 0 !important;
     }
 
     #presentation {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100vw;
         margin-top: -100px;
     }
 
@@ -754,31 +744,19 @@ footer div p {
     }
 
     #presentation > h1 {
-        font-size: 2.5rem;
-        line-height: 3rem;
+        line-height: 3rem !important;
         margin: 0 auto 30px auto;
         text-align: center;
-        width: 90vw;
-        height: 130px;
-    }
-    
-    #presentation > p {
-        width: 85vw;
-    }
-
-    #presentation button {
-        background-image: linear-gradient(to right, #562350b0, #332067a6);
-        padding: 10px;
-        scale: 1.05;
-        border: 1px solid var(--grey-text);
+        width: 90vw !important;
+        height: 130px !important;
     }
 
     .cursor {
-        height: 40px;
+        height: 40px !important;
     }
 
     #header-bg {
-        height: 300vh;
+        height: 300vh !important;
         background-image: url("../img/bg-mobile.jpg"), url("../img/bg-mobile-rotated.jpg");
         background-size: contain;
         background-position: top;
@@ -786,7 +764,7 @@ footer div p {
     }
 
     #header-bg img {
-        display: none;
+        display: none !important;
     }
 
     #skills-bg {
@@ -809,7 +787,8 @@ footer div p {
     }
 
     #technologies {
-        width: 100%;
+        width: 75% !important;
+        scale: 1 !important;
     }
 
     #technologies > div {
@@ -818,12 +797,6 @@ footer div p {
 
     .mySlides {
         margin: 25px;
-    }
-
-    .mySlides img {
-        height: 80% !important;
-        width: 80% !important;
-        margin-left: 20px;
     }
     
     #projects {
@@ -837,7 +810,7 @@ footer div p {
     }
 
     #projects hr {
-        width: 90%;
+        width: 90% !important;
     }
 
     #pages-buttons button {
@@ -851,6 +824,7 @@ footer div p {
         overflow-y: scroll;
         overflow-x: hidden;
         margin-bottom: 40px;
+        scale: 1 !important;
     }
 
     .project-container {
@@ -870,8 +844,13 @@ footer div p {
     }
 
     #connect > img {
-        scale: 0.45;
-        margin: -130px 0;
+        scale: 0.45 !important;
+        margin: -130px 0 !important;
+        height: 55% !important;
+    }
+
+    #connect form {
+        min-width: 40% !important;
     }
 
     #connect form h1 {
@@ -889,6 +868,7 @@ footer div p {
 
     #my-contacts {
         width: 90%;
+        height: 320px !important;
         justify-content: center;
         bottom: 10px;
         border-radius: 40px;
@@ -902,7 +882,8 @@ footer div p {
     }
 
     footer {
-        padding: 0px;
+        height: 450px !important;
+        padding: 0px !important;
     }
 
     footer > div > a {
@@ -922,30 +903,65 @@ footer div p {
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 900px) {
+
+    header {
+        height: 1000px;
+    }
+
+    #header-presentation-container {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding-top: 230px;
+    }
+
+    #presentation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+    }
+
+    #presentation > h1 {
+        line-height: 3.3rem;
+        text-align: center;
+        width: 85vw;
+        height: 110px;
+    }
+
+    #presentation > p {
+        width: 85vw;
+    }
+
+    #presentation button {
+        background-image: linear-gradient(to right, #562350b0, #332067a6);
+        padding: 10px;
+        scale: 1.05;
+        border: 1px solid var(--grey-text);
+    }
+
+    .cursor {
+        height: 50px;
+    }
+
+    #img-astronaut {
+        scale: 0.7;
+        margin-bottom: -50px;
+    }
+
+    #header-bg {
+        height: 1000px;
+    }
 
     #header-bg img {
-        scale: 1.3;
+        width: 210% !important;
     }
 
-    #presentation h1 {
-        font-size: 2.7rem;
-    }
-
-    #technologies {
-        width: 90%;
-    }
-
-    #technologies div {
-        width: 100%;
-    }
-
-    .mySlides {
-        width: 200px !important;
-    }
-
-    #projects > p {
-        width: 80vw;
+    .mySlides img {
+        height: 95% !important;
+        width: 95% !important;
+        margin-left: 5px;
     }
 }
 
@@ -956,12 +972,13 @@ footer div p {
         height: 80px;
     }
 
-    #navegation a, #nav-buttons {
+    #navegation > a, #nav-buttons {
         scale: 0.85;
     }
 
     #header-bg img {
         width: 150%;
+        scale: 1 !important;
     }
 
     #technologies {
@@ -969,7 +986,7 @@ footer div p {
         scale: 0.8;
     }
 
-    #technologies div {
+    #technologies > div {
         width: 100%;
     }
 
@@ -985,8 +1002,8 @@ footer div p {
         height: 35%;
     }
 
-    #connect form {
-        width: 35%;
+    #connect > form {
+        min-width: 35%;
     }
 
     .input-form {
@@ -1003,6 +1020,29 @@ footer div p {
     }
 }
 
-/* @media screen and (max-width: 900px) {
-    
-} */
+@media screen and (max-width: 1300px) {
+
+    #header-bg img {
+        scale: 1.3;
+    }
+
+    #presentation h1 {
+        font-size: 2.7rem;
+    }
+
+    #technologies {
+        width: 90%;
+    }
+
+    #technologies > div {
+        width: 100%;
+    }
+
+    .mySlides {
+        width: 200px;
+    }
+
+    #projects > p {
+        width: 80vw;
+    }
+}

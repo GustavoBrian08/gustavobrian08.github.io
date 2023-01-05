@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", () => { // On DOM Load initiate th
 
 // SLIDER SKILLS -----------------------------
 
+const prevButton = document.getElementsByClassName('prev')
+const nextButton = document.getElementsByClassName('next')
+
 let slideIndex = 1
 let slides = document.getElementsByClassName("mySlides")
 setTimeout(() => {if(slides){ showSlides(slideIndex) }}, 1000)
@@ -82,6 +85,8 @@ function showSlides(n) {
   slides[slideIndex+1].style.display = 'block'
 }
 
+prevButton[0].onclick = () => plusSlides(-3)
+nextButton[0].onclick = () => plusSlides(3)
 setInterval(() => plusSlides(3), 4000)
 
 // HOVER PROJECTS -----------------------------
