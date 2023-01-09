@@ -85,9 +85,11 @@ function showSlides(n) {
   slides[slideIndex+1].style.display = 'block'
 }
 
-prevButton[0].onclick = () => plusSlides(-3)
-nextButton[0].onclick = () => plusSlides(3)
-setInterval(() => plusSlides(3), 4000)
+if(prevButton[0]){
+  prevButton[0].onclick = () => plusSlides(-3)
+  nextButton[0].onclick = () => plusSlides(3)
+  setInterval(() => plusSlides(3), 4000)
+}
 
 // HOVER PROJECTS -----------------------------
 
