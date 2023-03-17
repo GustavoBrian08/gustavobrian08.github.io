@@ -207,8 +207,8 @@ const loadSkills = async () => {
     container.classList.add('mySlides')
     container.classList.add('fade')
     img.src = doc.data().thumbnail
-    img.style.width = '200px'
-    img.style.height = '170px'
+    img.style.width = '180px'
+    img.style.height = '180px'
     title.innerText = doc.data().nome
 
     container.appendChild(img)

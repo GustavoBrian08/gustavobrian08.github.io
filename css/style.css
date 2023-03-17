@@ -329,6 +329,13 @@ header {
     display: none;
     height: 150px;
     width: 200px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mySlides img {
+    border-radius: 15px;
 }
 
 .mySlides h3 {
@@ -959,8 +966,8 @@ footer div p {
     }
 
     .mySlides img {
-        height: 95% !important;
-        width: 95% !important;
+        height: 150px !important;
+        width: 150px !important;
         margin-left: 5px;
     }
 }
