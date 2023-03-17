@@ -37,7 +37,7 @@ I developed the project without thinking about responsiveness because the initia
 - JavaScript
 - [Firebase](https://firebase.google.com/) - A platform with a NoSQL Database.
 - [ScrollRevealJS](https://scrollrevealjs.org) - Library for animating elements as they enter/leave the viewport.
-- Toastify - Library that lets you create notifications toasts/messages.
+- [Toastify](https://apvarun.github.io/toastify-js/) - Library that lets you create notifications toasts/messages.
 
 ## Contact 
 
