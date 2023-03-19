@@ -24,6 +24,8 @@ Connect with me at **[LinkedIn](https://www.linkedin.com/in/gustavo-brian08/)**.
 
 2 - I am still unsure about how I will classify the technologies that I will be adding, so there may be changes to the categories.
 
+3 - The images and interface were taken (and based) from this [video](https://www.youtube.com/watch?v=hYv6BM2fWd8). I only based myself on the design and made my own adaptations, all the code was developed by me. I also created the mobile version of the design.
+
 ## Responsivity
 
 ![](https://github.com/GustavoBrian08/gustavobrian08.github.io/blob/main/img/github/mob-details.gif)
